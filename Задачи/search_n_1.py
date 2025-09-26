@@ -13,7 +13,7 @@ numposranks = {
     1: 9,
 }
 
-for i in range(2, 1000):
+for i in range(2, 10**4):
     last_ranks_amount = (10**(i-1)-1)
     numposranks[i] = numposranks[i-1] + (10**(i)-1-last_ranks_amount)*i
 
