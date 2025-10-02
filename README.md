@@ -5,3 +5,8 @@
 
 Нерешённые задачи:
 * (...)
+
+# venv
+myenv\Scripta\activate.bat
+
+deactivate
