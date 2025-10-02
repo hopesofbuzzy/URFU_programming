@@ -1,6 +1,7 @@
 import random
 import string
 
+# Генерация пароля длины n из символов chars
 def gen(chars, n):
     return ''.join([random.choice(chars) for i in range(n)])
 

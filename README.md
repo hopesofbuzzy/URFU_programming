@@ -6,7 +6,7 @@
 Нерешённые задачи:
 * (...)
 
-# venv
+# Виртуальная среда (myenv)
 myenv\Scripta\activate.bat
 
 deactivate

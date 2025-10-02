@@ -1,10 +1,12 @@
 
-a = input().lower()
+nums = input().lower()
 
+# Все символы
 chars = {}
+# Самые частые символы
 bestchars = {}
 
-for ch in a:
+for ch in nums:
     if ch in chars:
         chars[ch] += 1
     else:
