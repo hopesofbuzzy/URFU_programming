@@ -7,3 +7,7 @@
 ### Виртуальная среда (myenv)
 * myenv\Scripta\activate.bat
 * deactivate
+
+### Контакты
+* Никнейм в группе в Telegram: **bebebe** (без id)
+* Имя: Нурбаев Д. Б.

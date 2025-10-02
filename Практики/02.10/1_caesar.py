@@ -1,23 +1,13 @@
 import string
 
-# Получаем алфавиты русского и английксого языков
+# Получаем алфавиты русского и английского языков
 rus = ''.join([chr(i) for i in range(ord('а'), ord('а')+32)])
 eng = string.ascii_lowercase
 
 def encrypt(text: str, shift: int):
-    '''
-    Использует шифр Цезаря для зашифровки данных
-    (см. _encryption())
-    :return: зашифрованный текст
-    '''
     return _encryption(text, shift, 1)
 
 def decrypt(text: str, shift: int):
-    '''
-    Использует шифр Цезаря для расшифровки данных
-    (см. _encryption())
-    :return: расшифрованный текст
-    '''
     return _encryption(text, shift, -1)
 
 def _encryption(text: str, shift: int, mode: int):
@@ -25,7 +15,7 @@ def _encryption(text: str, shift: int, mode: int):
     Использует шифр Цезаря для расшифровки или зашифровки данных
 
     :param text: данные для зашифровки или расшифровки
-    :param shift: сдвиг
+    :param shift: сдвиг шифра
     :param mode: режим работы (1 = зашифровка, -1 = расшифровка)
     :return:
     '''
