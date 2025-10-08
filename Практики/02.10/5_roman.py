@@ -40,9 +40,7 @@ def digit_to_roman(digit: int):
     """
     roman = ""
     while digit:
-        roman += _read_digit(digit)[
-            0
-        ]  # вычитаем из обычного числа наиб. подходящую римскую цифру
+        roman += _read_digit(digit)[0]  # вычитаем из обычного числа наиб. подходящую римскую цифру
         digit = _read_digit(digit)[1]  # присваиваем отсавшуюся часть обычного числа
     return roman
 
