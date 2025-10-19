@@ -19,3 +19,5 @@
 ### Контакты
 * Никнейм в группе в Telegram: **bebebe** (без id)
 * Имя: Нурбаев Д. Б.
+
+GIT_COMMITTER_DATE="Sun 18 Oct 2025 15:20:20 BST" git commit --date "SUN 18 Oct 2025 15:20:20 BST" -m "Изменение READMe.md"
