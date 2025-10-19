@@ -26,24 +26,36 @@ class IOT:
         }
         self.students = [StudentIOT()] * n
 
+    def run(self):
+        while True:
+            print("Выбор расписания IOT")
+            self.__print_pool()
+            day = int(input("Введи учебный день для выбора: "))
+            subject = int(input("Введи пару для выбора: "))
+
+    def get_input(self):
+        pass
+
+    def __print_pool(self):
         for key, value in self.pool.items():
             print(
                 f'{key}: {", ".join(
-                [f"{subject[0]} (ост: {subject[1]})" if subject is not None else "-------" for subject in value]
-            )}'
+                    [f"{subject[0]} (ост: {subject[1]})" if subject is not None else "-------" for subject in value]
+                )}'
             )
 
-    def form_schedule(self):
-        for key, value in self.pool.items():
-            for i, item in enumerate(value):
-                if item is None:
-                    continue
-                for group in self.students:
-                    if group[key][i] is None and not (item[0] in group["набор"]):
-                        if item[1] != 0:
-                            item[1] -= 1
-                            group[key][i] = item[0]
-                            group["набор"].append(item[0])
+    def autorun(self):
+        pass
+        # for key, value in self.pool.items():
+        #     for i, item in enumerate(value):
+        #         if item is None:
+        #             continue
+        #         for group in self.students:
+        #             if group[key][i] is None and not (item[0] in group["набор"]):
+        #                 if item[1] != 0:
+        #                     item[1] -= 1
+        #                     group[key][i] = item[0]
+        #                     group["набор"].append(item[0])
 
 
 my_iot = IOT(3)
