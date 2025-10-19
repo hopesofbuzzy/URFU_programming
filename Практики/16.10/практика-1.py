@@ -3,7 +3,10 @@ SALARY = 10_000.0
 
 class Employee:
     def __init__(self):
-        self.salary_size = 1
+        """
+        Класс для работника компании
+        """
+        self.salary_size = 0
 
     def calc_salary(self):
         return SALARY * self.salary_size
@@ -11,12 +14,18 @@ class Employee:
 
 class Manager(Employee):
     def __init__(self):
-        self.salary_size = 2
+        """
+        Класс для менеджера
+        """
+        self.salary_size = 20
 
 
 class Developer(Employee):
     def __init__(self):
-        self.salary_size = 1.5
+        """
+        Класс для разработчика
+        """
+        self.salary_size = 6
 
 
 David = Developer()
