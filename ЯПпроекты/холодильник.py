@@ -1,10 +1,9 @@
 import datetime
 from decimal import Decimal
-import string
 import re
 
 DATE_FORMAT = "%Y-%m,%d"
-goods = {}
+goods: dict = {}
 
 
 def add(items, title, amount, expiration_date=None):
@@ -35,8 +34,8 @@ def add_by_note(items, note):
     :param note: строка в формате <название предмета> <количество> <срок годности>
     :return: None
     """
-    amount = expiration_date = title = i = None
-    if re.match(f"[0-9]+-[0-9]+-[0-9]+", note.split()[-1]):
+    amount = expiration_date = title = None
+    if re.match("[0-9]+-[0-9]+-[0-9]+", note.split()[-1]):
         amount, expiration_date = note.split()[-2:]
         title = " ".join(note.split()[:-2])
 
@@ -75,3 +74,13 @@ def amount(items, needle):
         if needle.lower() in key.lower():
             amountt += sum([part["amount"] for part in items[key]])
     return Decimal(str(amountt))
+
+add(goods, "Молоко", 1, "2025-10-12")
+add_by_note(goods, "Молоко 1 2025-10-13")
+add_by_note(goods, "Молоко 1")
+add_by_note(goods, "Яйца куриные 10 2025-09-29")
+add_by_note(goods, "Яйца гусиные 10")
+
+print(find(goods, "йц"))
+print(amount(goods, "яйца куриные"))
+print(goods)
