@@ -2,7 +2,7 @@ import datetime
 from decimal import Decimal
 import re
 
-DATE_FORMAT = "%Y-%m,%d"
+DATE_FORMAT = '%Y-%m,%d'
 goods: dict = {}
 
 
@@ -18,11 +18,11 @@ def add(items, title, amount, expiration_date=None):
     """
     if expiration_date:
         expiration_date = datetime.datetime.strptime(
-            expiration_date, r"%Y-%m-%d"
+            expiration_date, r'%Y-%m-%d'
         ).date()
     items[title] = items.setdefault(title, [])
     items[title].append(
-        {"amount": Decimal(str(amount)), "expiration_date": expiration_date}
+        {'amount': Decimal(str(amount)), 'expiration_date': expiration_date}
     )
 
 
@@ -35,13 +35,13 @@ def add_by_note(items, note):
     :return: None
     """
     amount = expiration_date = title = None
-    if re.match("[0-9]+-[0-9]+-[0-9]+", note.split()[-1]):
+    if re.match('[0-9]+-[0-9]+-[0-9]+', note.split()[-1]):
         amount, expiration_date = note.split()[-2:]
-        title = " ".join(note.split()[:-2])
+        title = ' '.join(note.split()[:-2])
 
     else:
         amount = note.split()[-1]
-        title = " ".join(note.split()[:-1])
+        title = ' '.join(note.split()[:-1])
 
     add(items, title, amount, expiration_date)
 
@@ -69,18 +69,19 @@ def amount(items, needle):
     :param needle: строка для поиска продутка (без регистра)
     :return: количество продукта
     """
-    amountt = Decimal("0")
+    amountt = Decimal('0')
     for key, value in items.items():
         if needle.lower() in key.lower():
-            amountt += sum([part["amount"] for part in items[key]])
+            amountt += sum([part['amount'] for part in items[key]])
     return Decimal(str(amountt))
 
-add(goods, "Молоко", 1, "2025-10-12")
-add_by_note(goods, "Молоко 1 2025-10-13")
-add_by_note(goods, "Молоко 1")
-add_by_note(goods, "Яйца куриные 10 2025-09-29")
-add_by_note(goods, "Яйца гусиные 10")
 
-print(find(goods, "йц"))
-print(amount(goods, "яйца куриные"))
+add(goods, 'Молоко', 1, '2025-10-12')
+add_by_note(goods, 'Молоко 1 2025-10-13')
+add_by_note(goods, 'Молоко 1')
+add_by_note(goods, 'Яйца куриные 10 2025-09-29')
+add_by_note(goods, 'Яйца гусиные 10')
+
+print(find(goods, 'йц'))
+print(amount(goods, 'яйца куриные'))
 print(goods)
