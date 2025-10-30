@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Django Site{% endblock %}
+
+{% block content %}
+<h1>Книги</h1>
+
+<!-- Display dynamic data from view -->
+{% for book in books %}
+<article>
+    <h2>{{ book.title }}</h2>
+    <h3>{{ book.author }}</h3>
+    <h3>{{ book.content }}</h3>
+    <h3>---------------------</h3>
+</article>
+{% endfor %}
+{% endblock %}
