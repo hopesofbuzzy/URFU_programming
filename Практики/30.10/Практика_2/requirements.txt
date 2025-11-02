@@ -1,0 +1,7 @@
+asgiref==3.10.0
+django==4.2.25
+dotenv==0.9.9
+python-dotenv==1.2.1
+sqlparse==0.5.3
+typing-extensions==4.15.0
+tzdata==2025.2
