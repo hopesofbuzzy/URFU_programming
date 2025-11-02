@@ -23,5 +23,5 @@ from catalog import views
 # Мы используем admin/ и стартовый URL
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.post_list, name='post_list')
+    path("", views.post_list, name="post_list"),
 ]

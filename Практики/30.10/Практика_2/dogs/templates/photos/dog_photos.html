@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - My Django Site{% endblock %}
+{% block title %}Собачки!{% endblock %}
 
 {% block content %}
-<h1>Книги</h1>
+<!-- Отображение списка собак -->
+<h2>Список собачек</h2>
+{% for breed in breeds %}
+{{ breed }}, 
+{% endfor %}
+
+<!-- Отображение строки ввода -->
+<h2>Введите данные для GET-запроса</h2>
+<form method="GET" action="">
+    <label for="input_field">Введите текст:</label><br>
+    <input type="text" id="input_field" name="input_field" required><br><br>
+    <button type="submit">Отправить</button>
+</form>
 
 <!-- Отображение изменяющихся данных из view -->
-{% for book in books %}
+{% for breed in entered_breeds %}
 <article>
-    <h2>{{ book.title }}</h2>
-    <h3>{{ book.author }}</h3>
-    <h3>{{ book.content }}</h3>
+    <h2>{{ breed }}</h2>
+    <img src="{{ MEDIA_URL }}/{{ breed }}.jpg" alt="Изображение собачки!", width=150, height=150>
     <h3>---------------------</h3>
 </article>
 {% endfor %}

@@ -9,19 +9,19 @@ if response.status_code == 200:
     results = response.json()["results"]
     print('Список первых 20 покемонов')
     for i, pokemon in enumerate(results):
-        print(f'{i+1}. {pokemon["name"]}', end="\n")
+        print(f'{i+1}. {pokemon["name"]}')
 
     # Даём возможность обратиться
     # к определённому покемону по номеру index
     # Делаем запрос
-    index = int(input('\nВведите номер для подробной информации: '))
+    index = int(input('Введите номер для подробной информации: '))
     search_response = requests.get(
         f'https://pokeapi.co/api/v2/pokemon/{index}'
     )
     search_results = search_response.json()
 
     # Выводим результат поиска
-    print('\nРезультат поиска:')
+    print('Результат поиска:')
     print(f'Имя: {search_results["name"]}')
     types = [
         typed["type"]["name"] for typed in search_results['types']

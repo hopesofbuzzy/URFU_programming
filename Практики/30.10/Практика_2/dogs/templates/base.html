@@ -1,17 +1,25 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Собачки!{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Фото собачек :3</h1>
+        </nav>
+    </header>
 
-{% block title %}Home - My Django Site{% endblock %}
+    <main>
+        {% block content %}
+        <!-- Постраничное содержание -->
+        {% endblock %}
+    </main>
 
-{% block content %}
-<h1>Книги</h1>
-
-<!-- Отображение изменяющихся данных из view -->
-{% for book in books %}
-<article>
-    <h2>{{ book.title }}</h2>
-    <h3>{{ book.author }}</h3>
-    <h3>{{ book.content }}</h3>
-    <h3>---------------------</h3>
-</article>
-{% endfor %}
-{% endblock %}
+    <footer>
+        <p>&copy; 2025- Сайт собачек под охраной собачек!</p>
+    </footer>
+</body>
+</html>
