@@ -31,7 +31,7 @@ class Pokemon:
                 self.attack = int(stat["base_stat"])
             elif stat_name == "defense":
                 self.defense = int(stat["base_stat"])
-        # Значения для биты
+        # Значения для битвы
         self.fight_hp = self.hp
 
     def __str__(self):
