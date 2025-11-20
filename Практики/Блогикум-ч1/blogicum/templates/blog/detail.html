@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Остров отчаянья. 25 октября 1659 года{% endblock%}
+{% block content %}
+  <div class="container py-5">
+    {% if real %}
+      <article>
+        <ul>
+          <li>
+            Место: {{ post.location }}
+          </li>
+          <li>
+            Дата: {{ post.date}}
+          </li>
+          <li>
+            Категория: <a href="{% url 'blog:category_posts' post.category%}">{{ post.category }}</a>
+          </li>
+        </ul>         
+        <p>
+          {{ post.text|linebreaksbr }}
+        </p>          
+      </article>
+    {% else %}
+      <article>
+        <p>Упс, такого блока не существует!</p>
+      </article>
+    {% endif %}           
+  </div>
+{% endblock %}
